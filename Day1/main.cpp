@@ -4,7 +4,34 @@
 
 using std::string;
 
+struct Elf{
+    int calories[20];
+};
+string getList();
+void getCalories(std::string list, Elf elves[]);
+
 int main(){
+    // String containing the list of calories.
+    string list = getList();
+
+    getCalories(list, NULL);
+
+    std::cout << list;
+    return 0;
+}
+
+void getCalories(std::string list, Elf elves[]){
+    int lines;
+    for (int i = 0; i < list.length(); i++){
+        if (list[i] == '\n'){
+            lines++;
+        }
+    }
+    lines++;
+    std::cout << lines;
+}
+
+string getList(){
     // Get the path of the list file.
     std::cout << "Enter path of the list of the calories every elf carries: ";
     std::string pathToList;
@@ -28,6 +55,5 @@ int main(){
     //Close the file
     List.close();
 
-    std::cout << list;
-    return 0;
+    return list;
 }
