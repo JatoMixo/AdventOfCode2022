@@ -1,12 +1,13 @@
 #include <iostream>
 
-//TODO Input System
+//UPGRADE Input System
 //TODO Make Equivalent
 //TODO Calculate score
 //TODO Give score / output
 
 void inputMove(std::string message, char *var);
 void enterMoves(char *opponentMoves, char *playerMoves);
+void translate(char *opponentMoves, char *playerMoves);
 
 int main(){
     char opponentMoves[3];
@@ -15,6 +16,14 @@ int main(){
     enterMoves(opponentMoves, playerMoves);
 
     return 0;
+}
+
+void translate(char *opponentMoves, char *playerMoves){
+    for (int i = 0; i < sizeof(*opponentMoves)/sizeof(opponentMoves[0]); i++){
+        if (opponentMoves[i] == 'A'){
+            
+        }
+    }
 }
 
 void enterMoves(char *opponentMoves, char *playerMoves){
