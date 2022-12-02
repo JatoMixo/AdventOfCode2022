@@ -16,7 +16,7 @@ int main(){
 
     getCalories(list, NULL);
 
-    std::cout << list;
+    //std::cout << list;
     return 0;
 }
 
@@ -28,7 +28,10 @@ void getCalories(std::string list, Elf elves[]){
         }
     }
     lines++;
-    std::cout << lines;
+
+    for (int i = 0; i > lines; i++){
+
+    }
 }
 
 string getList(){
