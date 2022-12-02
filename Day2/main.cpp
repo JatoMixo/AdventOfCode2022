@@ -6,7 +6,7 @@
 
 void inputMove(std::string message, char *var);
 void enterMoves(char *opponentMoves, char *playerMoves);
-void calculateScores(char *opponentMoves, char *playerMoves);
+int calculateScore(char *opponentMoves, char *playerMoves);
 
 int main(){
     // Moves every player will do
@@ -17,29 +17,29 @@ int main(){
     enterMoves(opponentMoves, playerMoves);
     
     // Calculate scores
-    int opponentScore;
-    int playerScore;
-
-    calculateScores(opponentMoves, playerMoves);
+    std::cout << "Your score is: " << calculateScore(opponentMoves, playerMoves);
 
     return 0;
 }
 
 // Calculate the player's scores
-void calculateScores(char *opponentMoves, char *playerMoves){
-    int opponentScore;
+int calculateScore(char *opponentMoves, char *playerMoves){
     int playerScore;
 
     for (int i = 0; i < sizeof(*opponentMoves)/sizeof(opponentMoves[0]); i++){
-        opponentScore += opponentMoves[i] % 64;
         playerScore += playerMoves[i] % 87;
 
         if (opponentMoves[i] == playerMoves[i]){
             playerScore += 3;
-            opponentScore += 3;
             continue;
+        } else if (playerMoves[i] % 87 == 2 && opponentMoves[i] % 64 == 0){
+            continue;
+        } else if (playerMoves[i] % 87 > opponentMoves[i] % 64){
+            playerScore += 6;
         } 
     }
+
+    return playerScore;
 }
 
 // Enter all moves and put them in the arrays
