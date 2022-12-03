@@ -1,11 +1,18 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <vector>
+
+// == TODO ==
+// - Parse calorie numbers
+// - Put numbers in arrays in a precise way
+// - Calculate who carries the most
+// - Give output
 
 using std::string;
 
 struct Elf{
-    int calories[20];
+    std::vector<int> calories;
 };
 string getList();
 void getCalories(std::string list, Elf elves[]);
@@ -14,7 +21,10 @@ int main(){
     // String containing the list of calories.
     string list = getList();
 
-    getCalories(list, NULL);
+    // Elves with their own array to store calories
+    Elf elves[];
+
+    getCalories(list, elves);
 
     //std::cout << list;
     return 0;
@@ -29,8 +39,14 @@ void getCalories(std::string list, Elf elves[]){
     }
     lines++;
 
-    for (int i = 0; i > lines; i++){
+    int actualElf = 0;
+    for (int i = 0; i < lines; i++){
+        if (list[i * lines] == '\n') {
+            actualElf++;
+            continue;
+        }
 
+        // elves[actualElf].calories.push_back();
     }
 }
 
