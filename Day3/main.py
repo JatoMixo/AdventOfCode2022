@@ -1,4 +1,6 @@
-
+# TODO Parse line
+# TODO Find common type items
+# TODO Calcualate the sum of the priority of the items
 
 def get_compartment(line):
     comps = []
