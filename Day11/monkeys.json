@@ -1,0 +1,41 @@
+[
+  0: {
+    "start": [79, 98],
+    "operation": "*",
+    "multiplier": 19,
+
+    "divisible": 23,
+    "true": 2,
+    "false": 3
+  },
+
+  1: {
+    "start": [54, 65, 75, 74],
+    "operation": "+",
+    "multiplier": 6,
+
+    "divisible": 19,
+    "true": 2,
+    "false": 0
+  },
+
+  2: {
+    "start": [79, 60, 97],
+    "operation": "*",
+    "multiplier": "old",
+
+    "divisible": 13,
+    "true": 1,
+    "false": 3
+  },
+
+  3: {
+    "start": [74],
+    "operation": "+",
+    "multiplier": 3,
+
+    "divisible": 17,
+    "true": 0,
+    "false": 1
+  }
+]
