@@ -2,11 +2,10 @@ import json
 import os
 
 def get_data(path):
-    with open(path, "r") as file:
-         return file.load()
+    return json.load(open(path, 'r'))
 
 def main():
-    pass
+    print(str(get_data("/home/jatomixo/Code/AdventOfCode2022/Day11/monkeys.json")))
 
 if __name__ == "__main__":
     main()

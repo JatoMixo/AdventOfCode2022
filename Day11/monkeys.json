@@ -1,5 +1,5 @@
-[
-  0: {
+{
+  "0": {
     "start": [79, 98],
     "operation": "*",
     "multiplier": 19,
@@ -9,7 +9,7 @@
     "false": 3
   },
 
-  1: {
+  "1": {
     "start": [54, 65, 75, 74],
     "operation": "+",
     "multiplier": 6,
@@ -19,7 +19,7 @@
     "false": 0
   },
 
-  2: {
+  "2": {
     "start": [79, 60, 97],
     "operation": "*",
     "multiplier": "old",
@@ -29,7 +29,7 @@
     "false": 3
   },
 
-  3: {
+  "3": {
     "start": [74],
     "operation": "+",
     "multiplier": 3,
@@ -38,4 +38,4 @@
     "true": 0,
     "false": 1
   }
-]
+}
