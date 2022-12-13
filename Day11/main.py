@@ -2,6 +2,7 @@
 
 import json
 import os
+from collections import defaultdict
 
 # Get the data from the JSON file in form of dictionary
 def get_data(path):
@@ -21,10 +22,22 @@ def calculate_items_inspected(monkeys, rounds):
 
             # Actual item
             h = 0
-            actual_monkey = monkeys[j]
-            while h < len(actual_monkey[start]):
-                actual_item = actual_monkey[start][h]
+            while h < len(monkeys[str(j)]["start"]):
+                if monkeys[str(j)]["operation"] == "*":
+                    if monkeys[str(j)]["multiplier"] == "old":
+                        monkeys[str(j)]["start"][h] *= monkeys[str(j)]["start"][h]
+                    else:
+                        monkeys[str(j)]["start"][h] *= monkeys[str(j)]["multiplier"]
+                else:
+                    monkeys[str(j)]["start"][h] += monkeys[str(j)]["multiplier"]
+
+                if monkeys[str(j)]["start"][h] % monkeys[str(j)]["divisible"]:
+                    monkeys[str(len(monkeys[str(j)]))["true"]]["start"].append(monkeys[str(j)]["start"][h])
+
+                print(monkeys)
+
                 h += 1
+                items_inspected[j] += 1
                 
             j += 1
 
