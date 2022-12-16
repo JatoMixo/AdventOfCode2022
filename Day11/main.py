@@ -27,7 +27,7 @@ def calculate_items_inspected(monkeys, rounds):
 
             # Actual item
             h = 0
-            while h < len(monkeys[str(j)]["start"]):
+            while h < len(actual_monkey["start"]):
                 # Actual item
                 actual_item = actual_monkey["start"][h] 
 
@@ -42,6 +42,9 @@ def calculate_items_inspected(monkeys, rounds):
                         actual_item += actual_item
                     else:
                         actual_item += actual_monkey["multiplier"]
+
+                # Divide by 3 worry level
+                actual_item = int(round(actual_item/3, 0))
 
                 # Throw item to new monkey
                 if actual_item % actual_monkey["divisible"]:
