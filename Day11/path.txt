@@ -1,0 +1,1 @@
+/home/jatomixo/Code/AdventOfCode2022/Day11/monkeys.json

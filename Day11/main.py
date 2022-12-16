@@ -19,25 +19,39 @@ def calculate_items_inspected(monkeys, rounds):
         # Actual monkey
         j = 0
         while j < len(monkeys):
+            # Actual monkey
+            actual_monkey = monkeys[str(j)]
 
             # Actual item
             h = 0
             while h < len(monkeys[str(j)]["start"]):
-                if monkeys[str(j)]["operation"] == "*":
-                    if monkeys[str(j)]["multiplier"] == "old":
-                        monkeys[str(j)]["start"][h] *= monkeys[str(j)]["start"][h]
-                    else:
-                        monkeys[str(j)]["start"][h] *= monkeys[str(j)]["multiplier"]
-                else:
-                    monkeys[str(j)]["start"][h] += monkeys[str(j)]["multiplier"]
+                # Actual item
+                actual_item = actual_monkey["start"][h] 
 
-                if monkeys[str(j)]["start"][h] % monkeys[str(j)]["divisible"]:
-                    monkeys[str(len(monkeys[str(j)]))["true"]]["start"].append(monkeys[str(j)]["start"][h])
+                # Increase worry level
+                if actual_monkey["operation"] == "*":
+                    if actual_monkey["multiplier"] == "old":
+                        actual_item *= actual_item
+                    else:
+                        actual_item *= actual_monkey["multiplier"]
+                else:
+                    if actual_monkey["multiplier"] == "old":
+                        actual_item += actual_item
+                    else:
+                        actual_item += actual_monkey["multiplier"]
+
+                # Throw item to new monkey
+                if actual_item % actual_monkey["divisible"]:
+                    monkeys[actual_monkey["true"]]["start"].append(actual_item)
+                    monkeys[str(j)]["start"].pop(h)
+                else:
+                    monkeys[str(len(monkeys[str(j)]))["false"]]["start"].append(monkeys[str(j)]["start"][h])
+                    monkeys[str(j)]["start"].pop(h)
 
                 print(monkeys)
 
-                h += 1
                 items_inspected[j] += 1
+                h += 1
                 
             j += 1
 
