@@ -1,8 +1,6 @@
 # TODO Calculate hoy many items inspected each monkey
 
 import json
-import os
-from collections import defaultdict
 
 # Get the data from the JSON file in form of dictionary
 def get_data(path):
@@ -10,7 +8,12 @@ def get_data(path):
 
 # Calculate which monkey has which item on every round
 def calculate_items_inspected(monkeys, rounds):
+
+    # Items each monkeys inspected
     items_inspected = []
+
+    # Fill items_inspected
+    for i in monkeys: items_inspected.append(0)
 
     # Actual round
     i = 0
@@ -42,13 +45,12 @@ def calculate_items_inspected(monkeys, rounds):
 
                 # Throw item to new monkey
                 if actual_item % actual_monkey["divisible"]:
-                    monkeys[actual_monkey["true"]]["start"].append(actual_item)
-                    monkeys[str(j)]["start"].pop(h)
+                    monkeys[str(actual_monkey["true"])]["start"].append(actual_item)
                 else:
-                    monkeys[str(len(monkeys[str(j)]))["false"]]["start"].append(monkeys[str(j)]["start"][h])
-                    monkeys[str(j)]["start"].pop(h)
+                    monkeys[str(actual_monkey["false"])]["start"].append(actual_item)
 
-                print(monkeys)
+                # Delete item from old monkey
+                monkeys[str(j)]["start"].pop(h)
 
                 items_inspected[j] += 1
                 h += 1
@@ -56,6 +58,8 @@ def calculate_items_inspected(monkeys, rounds):
             j += 1
 
         i += 1
+
+    return items_inspected
 
 # Calculate monkey business
 def calculate_monkey_business(monkeys):
@@ -73,8 +77,15 @@ def calculate_monkey_business(monkeys):
 
 def main():
     monkeys = get_data(input("Enter path of the monkeys' data file: "))
-    calculate_items_inspected(monkeys, int(input("How many rounds do you want to calculate: ")))
-    print(calculate_monkey_business([101, 95, 7, 105]))
+    rounds = input("How many rounds do you want to calculate: ")
+
+    print()
+    print("=======================================================================")
+    print()
+
+    print(calculate_monkey_business(calculate_items_inspected(monkeys, int(rounds))))
+    print(calculate_items_inspected(monkeys, int(rounds)))
+    # print(calculate_monkey_business([101, 95, 7, 105]))
 
 if __name__ == "__main__":
     main()
