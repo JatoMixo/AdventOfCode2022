@@ -1,0 +1,17 @@
+==Lava and all of that==
+
+3D Grid
+
+-- Calculate hoy many extrra faces a square adds to count--
+
+1. First square adds 6
+2. When adding a square, it adds +(6 - "How many squares it has close by 1 unit in 1 axis * 2")
+
+-- Calculate hoy many squares a new squares has 1 unit close in 1 axis--
+
+1. Loop over  all cubes:
+	1.1. If cube has same value on 2 axis and 1 unit different on the other:
+		1.1.1. It's close
+	1.2 Else not.
+
+
