@@ -3,6 +3,7 @@
 
 int calculateSurface(int &cubes);
 int calculateCloseSquares(int &cubes, int index);
+void inputValues(int &cubes);
 
 int main(){
   
@@ -49,4 +50,14 @@ int calculateCloseSquares(int &cubes, int index){
 
   // Return the value
   return squares;
+}
+
+void inputMoves(int &cubes){
+  std::cout << "Enter hoy many cubes you have: ";
+  int quantity;
+  std::cin >> quantity;
+
+  for (int i = 0; i < quantity; i++){
+
+  }
 }
