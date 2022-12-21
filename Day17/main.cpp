@@ -13,7 +13,7 @@ int main(){
   string jetPattern = inputMovement();
   
   // Tower
-  std::deque<char> tower[100][7];
+  char tower[100][7];
 
   // Fill everything with .
   fillTower(&tower);
