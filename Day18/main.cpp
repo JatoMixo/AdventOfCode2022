@@ -55,10 +55,10 @@ int calculateCloseSquares(int *cubes, int index, int length){
   for (int i = 0; i < length; i++){
     int counter = 0;
     for (int j = 0; j < subLen; j++){
-      if (cubes[i, j] == cubes[index, j]){ // In case both cubes have same value on 1 axis
+      if (cubes[j, i] == cubes[j, index]){ // In case both cubes have same value on 1 axis
         counter += 2;
       } 
-      if (abs(cubes[i, j] - cubes[index, j]) == 1){ // In case a cube is 1 unit away from the other on 1 axis.
+      if (abs(cubes[j, i] - cubes[j, index]) == 1){ // In case a cube is 1 unit away from the other on 1 axis.
         counter++;
       }
     }
