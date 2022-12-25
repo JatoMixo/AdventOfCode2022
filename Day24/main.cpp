@@ -9,6 +9,14 @@ class Coordinate{
     int x;
     int y;
     int dir; // 0 = UP; 1 = RIGHT; 2 = DOWN; 3 = LEFT 
+
+    Coordinate(int x, int y, int dir){
+      if (dir > 3 || dir < 0) throw new std::invalid_argument("Direction is not valid.");
+
+      this->x = x;
+      this->y = y;
+      this-> dir = dir;
+    }
 };
 
 vector<Coordinate> MoveCoordinates(vector<Coordinate> coords, int maxX, int maxY){
@@ -16,6 +24,9 @@ vector<Coordinate> MoveCoordinates(vector<Coordinate> coords, int maxX, int maxY
   if (coords.size() == 0) throw new std::invalid_argument("The size of the array is 0, you have no coordinates");
 
   for (int i = 0; i < coords.size(); i++){
+
+    if (coords[i].dir == -1) break;
+
     if (coords[i].dir == 0){
       coords[i].y++;
     } else if(coords[i].dir == 1){
