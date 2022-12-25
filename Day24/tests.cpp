@@ -1,6 +1,9 @@
 #include <iostream>
 #include <stdexcept>
-#include <./main.cpp>
+#include <vector>
+#include <D:/Miguel/Programas/AdventOfCode2022/Day24/main.cpp>
+
+using std::vector;
 
 void IS_TRUE(bool condition, std::string exception);
 void IS_FALSE(bool condition, std::string exception);
