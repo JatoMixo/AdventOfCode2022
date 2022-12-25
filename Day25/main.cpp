@@ -2,27 +2,27 @@
 #include <cmath>
 #include <stdexcept>
 
-int SnafuToDecimal(std::string snafu){
+/*int SnafuToDecimal(std::string snafu){
 
   int result = 0;
 
-  for (int i = sizeof(snafu)/sizeof(snafu[0]) - 1; i >= 0; i++){
-    char chr = snafu[i];
+  for (int i = snafu.length() - 1; i >= 0; i--){
 
-    if (chr == '='){
-      result += -pow(2, 5 * i);
-      break;
-    } else if (chr == '-'){
-      result += -pow(1, 5 * i);
-      break;
+    if (snafu[i] == '='){
+      result += (-2) * pow(5, i);
+      continue;
+    } else if (snafu[i] == '-'){
+      result += (-1) * pow(5, i);
+      continue;
     }
 
-    if ((int)(chr - 48) > 2 || (int)(chr - 48) < 0)
-    result += pow((int)(chr - 48), 5);
+    if ((int)(snafu[i] - 48) > 2 || (int)(snafu[i] - 48) < 0) throw new std::invalid_argument("Invalid term.");
+    result += ((int)(snafu[i] - 48)) * pow(5, i);
+    std::cout << i << ": " << result << "\n";
   }
 
   return result;
-}
+}*/
 
 std::string DecimalToSnafu(int decimal){
 
